@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Router</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+        .navigation {
+            width: 100vw;
+            height: 15px;
+            float: left;
+            margin: 15px 0px 0px 0px;
+            text-align: center;
+        }
+        .navigation > ul {
+            float: left;
+            height: 15px;
+            margin: 0px;
+            padding: 0px;
+        }
+        .navigation > ul > li {
+            user-select: none;
+            cursor: pointer;
+            list-style: none;
+            float: left;
+            padding: 0px 10px 0px 10px;
+            color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <ul>
+            <li><Router switch="">Router 1</Router></li>
+            <li><Router switch="">Router 2</Router></li>
+            <li><Router switch="">Router 3</Router></li>
+            <li><Router switch="">Router 4</Router></li>
+        </ul>
+    </div>
+    <Switch>
+        <Route switch="">
+            1
+        </Route>
+        <Route>
+            2
+        </Route>
+        <Route>
+            3
+        </Route>
+        <Route>
+            4
+        </Route>
+    </Switch>
+    
+    <script src="./router.js"></script>
+    <script>
+        var router = new Router();
+    </script>
+</body>
+</html>
