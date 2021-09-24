@@ -15,12 +15,32 @@ function $(element) {
     }
 }
 class Router {
-    router: Array<string>
-    route: Array<string>
+    selected: string
+    router: Map<string, HTMLDivElement>
     constructor(option) {
         console.log(window.location.href);
+        this.router = new Map<string, HTMLDivElement>();
+        
+        this.init();
+
+        this.hiddenAll();
+
+        this.router.forEach((value, key) => {
+            $(`Router[switch=${key}]`).onclick = () => {
+                this.hiddenAll();
+                this.router.get(key).style.display = 'block';
+            }
+        })
+    }
+    init() {
         $('Router').forEach(element => {
-            console.log(element);
+            var tag:string = element.getAttribute('switch');
+            this.router.set(tag, $(`Route[switch=${tag}]`));
+        });
+    }
+    hiddenAll() {
+        $('Switch > Route').forEach(element => {
+            element.style.display = 'none';
         });
     }
 }

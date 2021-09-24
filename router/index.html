@@ -35,23 +35,23 @@
 <body>
     <div class="navigation">
         <ul>
-            <li><Router switch="">Router 1</Router></li>
-            <li><Router switch="">Router 2</Router></li>
-            <li><Router switch="">Router 3</Router></li>
-            <li><Router switch="">Router 4</Router></li>
+            <li><Router switch="router1">Router 1</Router></li>
+            <li><Router switch="router2">Router 2</Router></li>
+            <li><Router switch="router3">Router 3</Router></li>
+            <li><Router switch="router4">Router 4</Router></li>
         </ul>
     </div>
     <Switch>
-        <Route switch="">
+        <Route switch="router1">
             1
         </Route>
-        <Route>
+        <Route switch="router2">
             2
         </Route>
-        <Route>
+        <Route switch="router3">
             3
         </Route>
-        <Route>
+        <Route switch="router4">
             4
         </Route>
     </Switch>
