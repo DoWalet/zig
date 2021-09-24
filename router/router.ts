@@ -51,6 +51,12 @@ class Router {
         var location = window.location.hash.slice(2, window.location.hash.length);
 
         this.selected = location;
+        console.log(this.selected);
+
+        if ($(`Router[switch=${this.selected}]`).getAttribute('activeClass')) {
+            console.log('in')
+            $(`Router[switch=${this.selected}]`).classList.add(this.activeClass.get(this.selected));
+        }
 
         if ($(`Router[switch=${this.selected}]`).getAttribute('active')) {
             eval($(`Router[switch=${this.selected}]`).getAttribute('active'));
@@ -84,16 +90,6 @@ class Router {
                 this.selected = key;
 
                 window.location.hash = '#/' + key;
-
-                console.log($(`Router[switch=${key}]`))
-                if ($(`Router[switch=${key}]`).getAttribute('activeClass')) {
-                    console.log($(`Router[switch=${key}]`).classList);
-                    if ($(`Router[switch=${key}]`).classList.length == 0) {
-                        $(`Router[switch=${key}]`).setAttribute('class', $(`Router[switch=${key}]`).getAttribute('activeClass'));
-                    } else {
-                        $(`Router[switch=${key}]`).classList.add($(`Router[switch=${key}]`).getAttribute('activeClass'));
-                    }
-                }
                 
             }
         })

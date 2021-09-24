@@ -44,6 +44,11 @@ var Router = /** @class */ (function () {
     Router.prototype.reload = function () {
         var location = window.location.hash.slice(2, window.location.hash.length);
         this.selected = location;
+        console.log(this.selected);
+        if ($("Router[switch=" + this.selected + "]").getAttribute('activeClass')) {
+            console.log('in', this.activeClass.get(this.selected));
+            $("Router[switch=" + this.selected + "]").classList.add(this.activeClass.get(this.selected));
+        }
         if ($("Router[switch=" + this.selected + "]").getAttribute('active')) {
             eval($("Router[switch=" + this.selected + "]").getAttribute('active'));
         }
@@ -74,16 +79,6 @@ var Router = /** @class */ (function () {
                 _this.router.get(key).style.display = 'block';
                 _this.selected = key;
                 window.location.hash = '#/' + key;
-                console.log($("Router[switch=" + key + "]"));
-                if ($("Router[switch=" + key + "]").getAttribute('activeClass')) {
-                    console.log($("Router[switch=" + key + "]").classList);
-                    if ($("Router[switch=" + key + "]").classList.length == 0) {
-                        $("Router[switch=" + key + "]").setAttribute('class', $("Router[switch=" + key + "]").getAttribute('activeClass'));
-                    }
-                    else {
-                        $("Router[switch=" + key + "]").classList.add($("Router[switch=" + key + "]").getAttribute('activeClass'));
-                    }
-                }
             };
         });
     };
