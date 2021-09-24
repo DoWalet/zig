@@ -30,12 +30,15 @@
             padding: 0px 10px 0px 10px;
             color: lightcoral;
         }
+        .selected {
+            color: lightgreen;
+        }
     </style>
 </head>
 <body>
     <div class="navigation">
         <ul>
-            <li><Router switch="router1">Router 1</Router></li>
+            <li><Router switch="router1" activeClass="selected">Router 1</Router></li>
             <li><Router switch="router2">Router 2</Router></li>
             <li><Router switch="router3">Router 3</Router></li>
             <li><Router switch="router4">Router 4</Router></li>
@@ -54,11 +57,19 @@
         <Route switch="router4">
             4
         </Route>
+        <Route status="notfound">
+            404
+        </Route>
     </Switch>
     
     <script src="./router.js"></script>
     <script>
-        var router = new Router();
+        var router = new Router({
+            
+        });
+        function show() {
+            console.log('h')
+        }
     </script>
 </body>
 </html>
